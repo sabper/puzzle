@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Ugly Truth MVP</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+      <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+      <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+      <style type="text/css">
+        #logo{
+          width:100px;
+          height:50px;
+          text-indent:-9999px;
+          background-image:url(images/uglytruthlogo.png);
+          background-repeat:no-repeat;
+          margin-top:0px;
+          margin-right:auto;
+          margin-bottom:auto;
+          margin-left:auto;
+        }
+      </style>
+  </head>
+
+  <body>
+    <div data-role="page" id="main">
+        <div data-role="header" data-position="fixed" data-theme="b">
+            <a href="#" data-icon="back">Back</a>
+            <h2 id="logo">Ugly Truth</h2>
+        </div>
+
+        <div data-role="content">
+          <form>
+            <label for="select-more-1a" class="ui-hidden-accessible">More</label>
+              <select name="지역" id="select-more-1a">
+                <option value="#">동아시아</option>
+                <option value="#">동남아시아</option>
+                <option value="#">유럽</option>
+                <option value="#">미주</option>
+              </select>
+          </form>
+
+          <form action="main.php" method="POST">
+            <input type="text" name="title" value="제목">
+            
+
+          </form>
+
+        </div>
+        <div data-role="footer">
+          <div data-role="navbar" data-positon="fixed">
+           <ul>
+             <li><a href="main.html" data-icon="home" data-iconpos="notext">Home</a></li>
+             <li><a href="search.html" data-icon="search" data-iconpos="notext">Search</a></li>
+             <li><a href="compose.html" data-icon="edit" class="ui-btn-active" data-iconpos="notext">Write</a></li>
+           </ul>
+         </div>
+        </div>
+    </div>
+  </body>
+</html>

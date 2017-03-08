@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Sample Map</title>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+    <style type="text/css">
+      html, body #map-canvas{
+        height: 100%;
+        margin: 0px;
+        padding: 0px;
+      }
+    </style>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA2PoahCwfzXOIv0vRZzHuzfskluLEvFq0&language=ko&callback=initMap">
+    </script>
+    <script type="text/javascript">
+    function initMap() {
+      var mapDiv = document.getElementById('map');
+      var map = new google.maps.Map(mapDiv, {
+        zoom: 8,
+        center: new google.maps.LatLng(-34.397, 150.644)
+      });
+
+      // We add a DOM event here to show an alert if the DIV containing the
+      // map is clicked.
+      google.maps.event.addDomListener(mapDiv, 'click', function() {
+        window.alert('Map was clicked!');
+      });
+    }
+    </script>
+  </head>
+  <body>
+    <div id="map-canvas" dir="rtl"></div>
+  </body>
+</html>

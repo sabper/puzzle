@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+
+    <title>Ugly Truth MVP</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+      <link rel="stylesheet" href="themes/my-custom-theme.min.css" />
+      <link rel="stylesheet" href="themes/jquery.mobile.icons.min.css" />
+      <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+      <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+
+      <link rel="stylesheet" href="//fonts.googleapis.com/icon?family=Material+Icons">
+      <link rel="stylesheet" href="collapzion.min.css">
+      <script src="collapzion.min.js"></script>
+
+      <link rel="stylesheet" type="text/css" href="style.css">
+      <script src="floatingbutton.js"></script>
+    <style>
+    .center{
+      text-align: center;
+    }
+
+
+    </style>
+  </head>
+
+  <body>
+    <div data-role="page" id="main" data-theme="b">
+        <div data-role="header" data-position="fixed">
+            <h2 id="logo">Ugly Truth</h2>
+          <div data-role="navbar" data-positon="fixed">
+           <ul>
+             <li><a href="index.html" data-icon="home" data-iconpos="notext">Home</a></li>
+             <li><a href="search.html" data-icon="search" data-iconpos="notext">Search</a></li>
+             <li><a href="myaccount.html" data-icon="user" class="ui-btn-active" data-iconpos="notext">My Account</a></li>
+           </ul>
+          </div>
+         </div>
+
+        <div data-role="content">
+        <h2 id="logo">Puzzle</h2>
+        <h2 class="center">Sign Up</h2>
+
+        <form action="action_page.html">
+          <input type="text" placeholder="Your email address">
+          <input type="password" placeholder="Password">
+          <select id="select-native-1" name="지역" data-mini="true" data-iconpos="left">
+            <option>성별(선택)</option>
+              <option value="1">남자</option>
+              <option value="2">여자</option>
+          </select>
+          <a href="#" class="ui-btn ui-btn-b ui-corner-all" style="background: rgb(85,71,232); color:white;">가입하기</a>
+        <br>
+        <h3 class="center">Already have an Account? <a href="signin.html"><span>Sign in</span></a></h3>
+
+        </form>
+
+
+
+        </div>
+    </div>
+  </body>
+</html>

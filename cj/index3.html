@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Ugly Truth MVP</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+      <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+      <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+
+      <link rel="stylesheet" href="kc.fab.css">
+      <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+
+
+      <style type="text/css">
+        #logo{
+          width:100px;
+          height:50px;
+          text-indent:-9999px;
+          background-image:url(images/uglytruthlogo.png);
+          background-repeat:no-repeat;
+          margin-top:0px;
+          margin-right:auto;
+          margin-bottom:auto;
+          margin-left:auto;
+          }
+      </style>
+  </head>
+
+  <body>
+    <div data-role="page" id="main">
+        <div data-role="header" data-position="fixed" data-theme="b">
+          <a href="#" data-icon="back">Back</a>
+          <h2 id="logo">Ugly Truth</h2>
+        </div>
+
+        <div data-role="content">
+          <ul data-role="listview" data-inset="true">
+            <li><a href="#">
+                <img src="images/04.jpg">
+            <h2>Not recommend</h2>
+            <p>If you want to get in trouble, it is the right spot</p></a>
+            </li>
+            <li><a href="#">
+                <img src="images/01.jpg">
+            <h2>Oh My God</h2>
+            <p>Terrible experience</p></a>
+            </li>
+            <li><a href="#">
+                <img src="images/02.jpg">
+            <h2>What the hell</h2>
+            <p>It was not what i expected</p></a>
+            </li>
+        </ul>
+        </div>
+
+        <div class="kc_fab_wrapper"></div>
+        <script type=text/javascript>
+        var links = [
+{
+  "bgcolor":"#03A9F4",
+  "icon":"+"
+},
+{
+  "url":"http://plus.google.com",
+  "bgcolor":"#DB4A39",
+  "color":"#fffff",
+  "icon":"<i class='fa fa-google-plus'></i>",
+  "target":"_blank"
+},
+{
+  "url":"http://www.facebook.com",
+  "bgcolor":"#00ACEE",
+  "color":"#fffff",
+  "icon":"<i class='fa fa-<a href="http://www.jqueryscript.net/tags.php?/twitter/">twitter</a>'></i>",
+  "target":"_blank"
+},
+{
+  "url":"http://www.facebook.com",
+  "bgcolor":"#3B5998",
+  "color":"#fffff",
+  "icon":"<i class='fa fa-facebook'></i>",
+  "target":"_blank"
+},
+{
+  "url":"http://www.jqueryscript.net",
+  "bgcolor":"#263238",
+  "color":"white",
+  "icon":"<i class='fa fa-home'></i>"
+}
+]
+$('.kc_fab_wrapper').kc_fab(links);
+</script>
+
+        <div data-role="footer">
+          <div data-role="navbar" data-positon="fixed">
+           <ul>
+             <li><a href="index.html" data-icon="home" class="ui-btn-active" data-iconpos="notext">Home</a></li>
+             <li><a href="search.html" data-icon="search" data-iconpos="notext">Search</a></li>
+             <li><a href="write.html" data-icon="edit" data-iconpos="notext">Write</a></li>
+           </ul>
+       </div>
+        </div>
+
+  </body>
+</html>

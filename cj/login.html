@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+
+    <title>Ugly Truth MVP</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+      <link rel="stylesheet" href="themes/my-custom-theme.min.css" />
+      <link rel="stylesheet" href="themes/jquery.mobile.icons.min.css" />
+      <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+      <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+
+      <link rel="stylesheet" href="//fonts.googleapis.com/icon?family=Material+Icons">
+      <link rel="stylesheet" href="collapzion.min.css">
+      <script src="collapzion.min.js"></script>
+
+      <link rel="stylesheet" type="text/css" href="style.css">
+      <script src="floatingbutton.js"></script>
+    <style>
+    .center{
+      text-align: center;
+      font-weight: bold;
+    }
+
+    #image_logo{
+      display: block;
+      margin: auto;
+      width: 40%;
+    }
+    </style>
+  </head>
+
+  <body>
+    <div data-role="page" id="main" data-theme="b">
+        <div data-role="header" data-position="fixed">
+            <h2 id="logo">Ugly Truth</h2>
+          <div data-role="navbar" data-positon="fixed">
+           <ul>
+             <li><a href="index.html" data-icon="home" data-iconpos="notext">Home</a></li>
+             <li><a href="search.html" data-icon="search" data-iconpos="notext">Search</a></li>
+             <li><a href="myaccount.html" data-icon="user" data-iconpos="notext">My Account</a></li>
+           </ul>
+          </div>
+         </div>
+
+        <div data-role="content">
+        <img src="images/puzzlelogo2.png" id="image_logo">
+        <p class="center">당신만의 여행퍼즐을 맞춰보세요!</p>
+        <form>
+        <input type="text" name="id" id="id" placeholder="아이디">
+        <input type="password" name="password" id="password" placeholder="비밀번호">
+        <br>
+        <a href="index.html" class="ui-btn ui-btn-a ui-corner-all" style="background: rgb(85,71,232); color:white;">로그인</a>
+            <label><input type="checkbox" name="checkbox-0" data-mini="true">로그인 상태 유지</label>
+        </form>
+
+
+        </div>
+    </div>
+  </body>
+</html>

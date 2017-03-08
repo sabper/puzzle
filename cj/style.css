@@ -1,0 +1,40 @@
+#logo{
+  width:150px;
+  height:35px;
+  text-indent:-9999px;
+  background-image:url(images/puzzlelogo6.png);
+  background-repeat:no-repeat;
+  display: block;
+  margin: 0 auto;
+  margin-top:10px;
+  }
+
+  #logo2{
+    width:150px;
+    height:35px;
+    text-indent:-9999px;
+    background-image:url(images/puzzlelogo.png);
+    background-repeat:no-repeat;
+    display: block;
+    margin: 0 auto;
+    margin-top:10px;
+    }
+
+.submit{
+  float:right;
+}
+
+.textarea, select{
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0px;
+    border: 1px;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+div.contents {
+    border-radius: 5px;
+    background-color: #B2EBF2;
+    padding: 10px;
+}

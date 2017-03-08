@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+
+    <title>Ugly Truth MVP</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+      <link rel="stylesheet" href="themes/my-custom-theme.min.css" />
+      <link rel="stylesheet" href="themes/jquery.mobile.icons.min.css" />
+      <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+      <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+
+      <link rel="stylesheet" href="//fonts.googleapis.com/icon?family=Material+Icons">
+      <link rel="stylesheet" href="collapzion.min.css">
+      <script src="collapzion.min.js"></script>
+
+      <link rel="stylesheet" type="text/css" href="style.css">
+      <script src="floatingbutton.js"></script>
+
+      <style>
+      #profile_image {
+        -webkit-border-radius: 50px;
+        -moz-border-radius: 50px;
+        border-radius: 50px;
+        border-top-left-radius: 50px !important;
+        border-bottom-left-radius: 50px !important;
+      }
+
+      p{
+        text-align: center;
+      }
+      hr {
+        width:100%;
+        height:1px;
+        background: #212121
+      }
+
+      div.container1{
+        height: 6em;
+        position: relative
+      }
+
+      div.container1 h3{
+        color: navy;
+        text-align: center;
+      }
+
+      div.container1 p{
+        margin:0px;
+        position: relative
+      }
+
+      div.container2{
+        height: 6em;
+        position: relative
+      }
+
+      div.image_canvas h2{
+        position: absolute;
+        top: 400px;
+      }
+
+      .rounded_corner{
+        border-radius: 10px;
+      }
+
+
+      .ui-grid-c{
+
+
+      }
+      .ui-grid-c span{
+        font-size: 30px;
+        color: black;
+
+      }
+
+
+      </style>
+  </head>
+
+  <body>
+    <div data-role="page" id="main" data-theme="b">
+        <div data-role="header" data-position="fixed">
+            <h2 id="logo">Ugly Truth</h2>
+          <div data-role="navbar" data-positon="fixed">
+           <ul>
+             <li><a href="index.html" data-icon="home" data-iconpos="notext">Home</a></li>
+             <li><a href="search.html" data-icon="search" data-iconpos="notext">Search</a></li>
+             <li><a href="myaccount.html" data-icon="user" class="ui-btn-active" data-iconpos="notext">My Account</a></li>
+           </ul>
+          </div>
+         </div>
+
+        <div data-role="content">
+          <form>
+            <label for="search-1">내 게시물 검색</label>
+            <input type="search" name="search-1" id="search-1" placeholder="나의 여행퍼즐을 검색해보세요" data-mini="true">
+          </form>
+        <div class=container1>
+        <img src="images/profile.png" width="100px" height="100px" style="float:left;" id="profile_image">
+        <h3>Changju Kim</h3>
+        <p>여행을 좋아라합니다</p>
+        <p>여자도 좋아합니다</p>
+        </div>
+        <br>
+          <div class="ui-grid-c">
+              <div class="ui-block-b"><a href="#"><div class="ui-bar ui-bar-a" style="height:60px">캔버스<br><span>4</span></div></a></div>
+              <div class="ui-block-b"><a href="#"><div class="ui-bar ui-bar-a" style="height:60px">퍼즐<br><span>8</span></div></a></div>
+              <div class="ui-block-b"><a href="#"><div class="ui-bar ui-bar-a" style="height:60px">좋아요<br><span>15</span></div></a></div>
+              <div class="ui-block-b"><a href="#"><div class="ui-bar ui-bar-a" style="height:60px">팔로잉<br><span>7</span></div></a></div>
+        </div>
+        <br>
+        <div class="ui-grid-c">
+            <div class="ui-block-b">
+                <a href="#" data-corners="false" data-icon="alert" data-iconpos="top" data-role="button" onclick="click()">Button 1</a>
+            </div>
+            <div class="ui-block-b">
+                <a href="#" data-corners="false" data-icon="star" data-iconpos="top" data-role="button" onclick="click()">button 2 </a>
+            </div>
+            <div class="ui-block-b">
+                <a href="#" data-corners="false" data-icon="location" data-iconpos="top" data-role="button" onclick="click()">Button 3</a>
+            </div>
+            <div class="ui-block-b">
+                <a href="#" data-corners="false" data-icon="info" data-iconpos="top" data-role="button" onclick="click()">button 4 </a>
+            </div>
+        </div>
+
+        <div class="block_1"></div> <hr />
+        <div class="image_canvas">
+        <img src="images/paris.jpg" width="100px" height="100px" style="float:left;" class="rounded_corner">
+        <img src="images/london.jpeg" width="100px" height="100px" class="rounded_corner">
+        <img src="images/prague.jpeg" width="100px" height="100px" style="float:right;" class="rounded_corner">
+        </div>
+
+        <div id="btncollapzion" class=" btn_collapzion">
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
