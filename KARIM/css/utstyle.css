@@ -1,0 +1,153 @@
+#utlogo {
+  width: 50px;
+  height: auto;
+  padding-bottom: 10px;
+  padding-top: 10px;
+}
+#utlogotext {
+  padding-right: 100px;
+    border-left-width: 100px;
+    padding-left: 100px;
+}
+#secondnav {
+  background-color: #c6c6c6;
+}
+.menucolor {
+  color: black;
+}
+#utfixbutt {
+  width:40px;
+ height:40px;
+
+ position:fixed;
+ top:80%;
+
+ right: 10%;
+}
+
+/* The Modal (background) */
+
+/* Bordered form */
+form#utloginform {
+    border: 3px solid #f1f1f1;
+}
+
+/* Full-width inputs */
+input.utloginip[type=text], input.utloginip[type=password] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+/* Set a style for all buttons */
+button#utloginbt {
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+}
+
+/* Extra style for the cancel button (red) */
+.utcancelbtn {
+    width: auto;
+    padding: 10px 18px;
+    background-color: #f44336;
+    color: white;
+}
+
+/* Center the avatar image inside this container */
+.utimgcontainer {
+    text-align: center;
+    margin: 24px 0 12px 0;
+}
+
+/* Avatar image */
+img.utavatar {
+    width: 40%;
+    border-radius: 50%;
+}
+
+/* Add padding to containers */
+.utcontainer {
+    padding: 16px;
+}
+
+/* The "Forgot password" text */
+span.utpsw {
+    float: right;
+    padding-top: 16px;
+}
+
+/* Change styles for span and cancel button on extra small screens */
+@media screen and (max-width: 300px) {
+    span.utpsw {
+        display: block;
+        float: none;
+    }
+    .utcancelbtn {
+        width: 100%;
+    }
+}
+.utmodal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    padding-top: 50px;
+}
+
+/* Modal Content/Box */
+.utmodal-content {
+    background-color: #fefefe;
+    margin: 5px auto; /* 15% from the top and centered */
+    border: 1px solid #888;
+    width: 50%; /* Could be more or less, depending on screen size */
+}
+
+/* The Close Button */
+.utclose {
+    /* Position it in the top right corner outside of the modal */
+    position: absolute;
+    right: 25px;
+    top: 0;
+    color: #000;
+    font-size: 35px;
+    font-weight: bold;
+    width: 26%;
+    margin: 50px auto;
+}
+
+/* Close button on hover */
+.utclose:hover,
+.utclose:focus {
+    color: red;
+    cursor: pointer;
+}
+
+/* Add Zoom Animation */
+.utanimate {
+    -webkit-animation: animatezoom 0.6s;
+    animation: animatezoom 0.6s
+}
+
+@-webkit-keyframes animatezoom {
+    from {-webkit-transform: scale(0)}
+    to {-webkit-transform: scale(1)}
+}
+
+@keyframes animatezoom {
+    from {transform: scale(0)}
+    to {transform: scale(1)}
+}

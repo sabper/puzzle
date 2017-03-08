@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+
+    <title>Ugly Truth MVP</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+      <link rel="stylesheet" href="themes/my-custom-theme.min.css" />
+      <link rel="stylesheet" href="themes/jquery.mobile.icons.min.css" />
+      <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+      <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+
+      <link rel="stylesheet" type="text/css" href="style.css">
+      <script src="camera.js"></script>
+  </head>
+
+  <body>
+    <div data-role="page" id="main" data-theme="a">
+        <div data-role="header" data-position="fixed" data-theme="a">
+            <h2 id="logo">Ugly Truth</h2>
+          <div data-role="navbar" data-positon="fixed" data-theme="a">
+           <ul>
+             <li><a href="index.html" data-icon="home" data-iconpos="notext">Home</a></li>
+             <li><a href="search.html" data-icon="search" data-iconpos="notext">Search</a></li>
+             <li><a href="myaccount.html" data-icon="user" data-iconpos="notext">My Account</a></li>
+           </ul>
+          </div>
+         </div>
+
+        <div data-role="content" data-theme="a">
+          <form action="/.php">
+            <div class="ui-field-contain">
+              <label for="select-native-1"></label>
+              <select id="select-native-1" name="지역" data-mini="true" data-iconpos="left">
+                <option>어디 다녀오셨나요?</option>
+                    <optgroup label="동아시아">
+                         <option value="1">한국</option>
+                         <option value="2">일본</option>
+                         <option value="3">중국</option>
+                         <option value="4">대만</option>
+                    </optgroup>
+                    <optgroup label="동남아시아">
+                         <option value="5">태국</option>
+                         <option value="6">베트남</option>
+                         <option value="7">필리핀</option>
+                         <option value="8">말레이시아</option>
+                         <option value="9">라오스</option>
+                    </optgroup>
+                    <optgroup label="유럽">
+                         <option value="10">영국</option>
+                         <option value="11">프랑스</option>
+                         <option value="12">독일</option>
+                         <option value="13">이탈리아</option>
+                         <option value="14">스페인</option>
+                         <option value="15">터키</option>
+                    </optgroup>
+                    <optgroup label="북미">
+                         <option value="16">미국</option>
+                         <option value="17">캐나다</option>
+                    </optgroup>
+                    <optgroup label="중남미">
+                         <option value="18">멕시코</option>
+                         <option value="19">페루</option>
+                         <option value="20">브라질</option>
+                    </optgroup>
+              </select>
+            </div>
+            <div class="contents" data-theme="a">
+              <label for="text-1">제목</label>
+              <input type="text" name="text-1" id="text-1" class="textarea">
+
+              <label for="textarea-1">오늘 무슨 일을 겪으셨나요?</label>
+              <textarea name="textarea-1" id="textarea-1" class="textarea"></textarea>
+
+              <label for="textarea-2">나만 알기 아까운 꿀팁 :)</label>
+              <textarea name="textarea-2" id="textarea-2" class="textarea"></textarea>
+            </div>
+            <br />
+              <label for="camera">사진</label>
+              <input type="file" id="camera" name="camera" capture="camera" accept="image/*" data-mini="true"  />
+
+              <label for="camcorder">동영상</label>
+              <input type="file" id="camcorder" name="camcorder" capture="camcorder" accept="video/*" data-mini="true"/>
+
+              <input type="submit" class="submit" data-inline="true" data-mini="true" value="저장"/>
+            </form>
+        </div>
+    </div>
+  </body>
+</html>

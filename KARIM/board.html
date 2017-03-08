@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+dl.a dt {border-bottom:1px dotted #000;}
+dl.a dd {display:none;}
+</style>
+<script type='text/javascript' src='/resources/js/jquery-1.11.2.js'></script>
+<script>
+function test(v) {
+   alert(v + " 게시물을 불러옵니다");
+}
+$(function(){
+   $("dl.a dt").each(function(){
+          $(this).click(function(){
+                 test($(this).data("keyvalue"));
+                 $(this).next().show(); 
+          });
+   });
+});
+</script>
+</head>
+<body>
+<?
+for ($x = 0; $x < 5; $x++) {
+   ?>
+   <dl class="a">
+     <dt data-keyvalue="a<?=$x?>">제목<?=$x+1?></dt>
+     <dd>내용<?=$x+1?></dd>
+   </dl>
+   <?
+}
+?>
+</body>
+</html> 
