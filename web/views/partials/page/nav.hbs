@@ -1,0 +1,43 @@
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="" href="#">
+      <img alt="ugly truth" id="utlogo" src="C:\Users\OOZWARE\Downloads\uglytruthlogo.png">
+      </a>
+    </div>
+    <h3 class="text-center" id="utlogotext">당신의 불편한 경험의 공유가 소중한 가치가 됩니다  <small>Share ugly truth..</small></h3>
+
+    <!-- Button to open the modal login form -->
+    <button class="btn btn-default navbar-btn navbar-right"onclick="document.getElementById('utid').style.display='block'">Login</button>
+
+    <!-- The Modal -->
+    <div id="utid" class="utmodal">
+      <span onclick="document.getElementById('utid').style.display='none'"
+    class="utclose" title="Close Modal">&times;</span>
+
+      <!-- Modal Content -->
+      <form id="utloginform" class="utmodal-content animate" action="/action_page.php">
+        <div class="utimgcontainer">
+          <img src="https://40.media.tumblr.com/795409fb917e7dff3fb9d1589e2b402f/tumblr_nj0w5roP8L1tmxi3oo1_1280.jpg" alt="Avatar" class="utavatar">
+        </div>
+
+        <div class="utcontainer">
+          <label><b>Username</b></label>
+          <input class= "utloginip" type="text" placeholder="Enter Username" name="uname" required>
+
+          <label><b>Password</b></label>
+          <input class= "utloginip" type="password" placeholder="Enter Password" name="psw" required>
+
+          <button id="utloginbt" type="submit">Login</button>
+          <input type="checkbox" checked="checked"> Remember me
+        </div>
+
+        <div class="utcontainer" style="background-color:#f1f1f1">
+          <button type="button" onclick="document.getElementById('utid').style.display='none'" class="utcancelbtn">Cancel</button>
+          <span class="utpsw">Forgot <a href="#">password?</a></span>
+        </div>
+      </form>
+    </div>
+
+  </div>
+</nav>
