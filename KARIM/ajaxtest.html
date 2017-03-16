@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+    <head>
+      <meta charset="utf-8">
+      <title></title>
+      <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    </head>
+    <body>
+        <div class="container">
+         <input type="file" id="files" name="images []" multiple>
+
+         <button>submit first image file</button>
+
+        </div>
+
+        <script>
+          var imageFileCollection = []; // new array
+
+          $('#files').on('change', function(e){
+            //filelist
+            var files = e.target.files;
+            $.each(files, function(i, file){
+
+              imageFileCollection.push(file);
+
+              console.log(imageFileCollection);
+            });
+          });
+
+          $('button').on('click', function(e){
+            e.preventDefault();
+            var formdata = new FormData(); //formelement
+            formdata.append('image', imageFileCollection[0]);
+
+            var request = new XMLHttpRequest();
+            request.open('post', 'jax.php', true);
+            request.send(formdata);
+          });
+        </script>
+
+        <!--$(document).ready(function(){
+          $(location).attr('href', 'http://www.naver.com');
+        });-->
+
+    </body>
+</html>
