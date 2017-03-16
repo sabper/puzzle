@@ -56,7 +56,7 @@
          </div>
 
         <div data-role="content" data-theme="b">
-        <form action="process.php" method="POST" name="formname1" id="formname1">
+        <form name="formname1" id="formname1"></form>
           <div class="contents" data-theme="b">
               <div>
                   <label for="text-1">
@@ -76,7 +76,6 @@
                   <textarea name="textarea-2" id="textarea-2" class="textarea" placeholder="Whisper better info."></textarea>
               </div>
           </div>
-          </form>
           </br>
 
                   <div class="filebox ui-input-btn ui-btn ui-corner-all ui-btn-icon-left ui-icon-camera ui-btn-inline">
@@ -89,9 +88,7 @@
                           video
                        
                       <input type="file" accept="video/*" id="camcorder" name="camcorder" capture="camcorder" data-enhanced="true"/>
-
                   </div>
-                  
                   <div>
                       &nbsp;&nbsp;
                       <img id="pic" style="width:40%;" />

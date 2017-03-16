@@ -1,3 +1,9 @@
+<?php
+$conn = mysqli_connect("localhost", "root", "vjwmf2017");
+mysqli_select_db($conn, "puzzle");
+$result = mysqli_query($conn, "SELECT * FROM topic");
+?>
+
 <!DOCTYPE html>
 <html>
   <head>
@@ -5,7 +11,6 @@
 
     <title>Ugly Truth MVP</title>
       <meta name="viewport" content="width=device-width, initial-scale=1">
-
       <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
       <link rel="stylesheet" href="themes/my-custom-theme.min.css" />
       <link rel="stylesheet" href="themes/jquery.mobile.icons.min.css" />
@@ -18,6 +23,35 @@
 
       <link rel="stylesheet" type="text/css" href="style.css">
       <script src="floatingbutton.js"></script>
+
+      <style>
+        #container {
+          position: relative;
+          left: 0%;
+          width: 100%;
+          padding-left: 20px;
+          padding-right: 20px;
+          background-color: white;
+          border-width: 1px;
+          border-style: solid hidden solid hidden;
+          border-top-color: rgb(197, 202, 233);
+          border-bottom-color: gray;
+        }
+
+        #container p{
+          width: 90%;
+        }
+
+        a {
+          text-decoration: none;
+        }
+
+        #btncollapzion {
+          position: absolute;
+          top: 88%;
+        }
+      </style>
+
   </head>
 
   <body>
@@ -27,51 +61,22 @@
           <h2 id="logo">Ugly Truth</h2>
           <div data-role="navbar" data-positon="fixed" data-theme="b">
            <ul>
-             <li><a href="index.html" data-icon="home" class="ui-btn-active" data-iconpos="notext">Home</a></li>
+             <li><a href="index.php" data-icon="home" class="ui-btn-active" data-iconpos="notext">Home</a></li>
              <li><a href="search.html" data-icon="search" data-iconpos="notext">Search</a></li>
              <li><a href="myaccount.html" data-icon="user" data-iconpos="notext">My Account</a></li>
            </ul>
           </div>
         </div>
 
-        <div data-role="content" data-theme="b" style="padding-top: 1px;">
-          <ul data-role="listview" data-inset="true" style="margin-top: 0px;">
-            <li><a href="content.html">
-                <img src="images/04.jpg">
-                <h2>Not recommend</h2>
-                <p>If you want to get in trouble, it is the right spot</p></a>
-            </li>
+            <?php
+            while( $row = mysqli_fetch_assoc($result)){
+              echo '<div id="container"><a href="http://localhost:8080/puzzle/cj/content.php?id='.$row['id'].'"><h3>'.$row['title'].'</h3><img src="images/prague.jpeg" width=90%;><p>'.$row['description'].'</p></a></div>&nbsp';
+            }
+            ?>
 
-            <li><a href="#">
-                <img src="images/01.jpg">
-                <h2>What the hell</h2>
-                <p>Terrible experience</p></a>
-            </li>
-
-            <li><a href="#">
-                <img src="images/02.jpg">
-                <h2>Oh My God</h2>
-                <p>Terrible experience</p></a>
-            </li>
-            <li><a href="#">
-                <img src="images/02.jpg">
-                <h2>Oh My God</h2>
-                <p>Terrible experience</p></a>
-            </li>
-            <li><a href="#">
-                <img src="images/02.jpg">
-                <h2>Oh My God</h2>
-                <p>Terrible experience</p></a>
-            </li>
-            <li><a href="#">
-                <img src="images/02.jpg">
-                <h2>Oh My God</h2>
-                <p>Terrible experience</p></a>
-            </li>
-          </ul>
           <div id="btncollapzion" class=" btn_collapzion">
           </div>
-        </div>
+
    </div>
  </body>
 </html>

@@ -3,7 +3,7 @@ jQuery(function($){
       _child_attribute:[
       {
         'label':'Review',
-        'url':'location.html',
+        'url':'write.php',
         'icon':'&#xE150;'
       },
       {

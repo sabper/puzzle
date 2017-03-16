@@ -28,13 +28,13 @@
       margin: auto;
       width: 40%;
     }
-
     </style>
   </head>
 
   <body>
     <div data-role="page" id="main" data-theme="b">
         <div data-role="header" data-position="fixed">
+            <a href="login.html" data-icon="back">Back</a>
             <h2 id="logo">Ugly Truth</h2>
           <div data-role="navbar" data-positon="fixed">
            <ul>
@@ -47,10 +47,15 @@
 
         <div data-role="content">
         <img src="images/puzzlelogo10.png" id="image_logo">
-        <p class="center">잠깐 구경하러 왔다가 눌러앉게 될걸요!</p>
-        <br>
-        <a href="signup.html" class="ui-btn ui-btn-a ui-corner-all" style="background: rgb(85,71,232); color:white;">시작하기</a>
-        <a href="signin.html" class="ui-btn ui-btn-b ui-corner-all">로그인</a>
+        <p class="center">당신만의 여행퍼즐을 만들어보세요!</p>
+        <form action="action.php" method="POST">
+          <input type="text" name="id" id="loginID" placeholder="아이디">
+          <input type="password" name="password" id="loginPASS" placeholder="비밀번호">
+          <br>
+          <input type="submit" value="로그인" style="background: rgb(85,71,232); color:white;">
+        </form>
+
+        <label><input type="checkbox" name="checkbox-0" data-mini="true">로그인 상태 유지</label>
 
         </div>
     </div>
