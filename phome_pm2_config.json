@@ -1,9 +1,9 @@
 {
   "apps": [{
-    "name": "bhomepage",
+    "name": "phome",
     "script": ".",
     "watch": true,
-    "node_args": "-r dotenv/config index.js dotenv_config_path=./barogo_homepage.env",
+    "node_args": "-r dotenv/config index.js dotenv_config_path=./puzzle_homepage.env",
     "env": {
       "NODE_ENV": "production",
       "PROCESS_TYPE": "web"

@@ -5,6 +5,8 @@ const logger = require('winston')
 const config = require('../config')
 const app = require('./server')
 require('./db')
+require('./firebase-admin')
+require('./firebase')
 
 const serverListen = promisify(app.listen, app)
 serverListen(config.server.port)

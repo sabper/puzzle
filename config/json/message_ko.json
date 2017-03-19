@@ -1,0 +1,48 @@
+{
+  "message": {
+    "common": {
+      "not_define_error": "알 수 없는 오류가 발생하였습니다."
+    },
+    "user": {
+      "email_not_exists": "이메일이 존재하지 않습니다.",
+      "password_not_exists": "패스워드가 존재하지 않습니다.",
+      "phone_not_exists": "전화번호가 존재하지 않습니다.",
+      "email_already_in_use": "이미 등록된 이메일 입니다.",
+      "phone_already_in_use": "이미 등록된 전화번호 입니다.",
+      "invalid_email": "이메일 형식이 올바르지 않습니다.",
+      "operation_not_allowed": "이메일과 비밀번호가 활화성화 되지 않았습니다.",
+      "weak_password": "비밀번호 보안이 약합니다.",
+      "token_not_exists": "토큰이 존재하지 않습니다.",
+      "not_verify_token": "토큰 검증에 실패하였습니다.",
+      "call_status_not_exists": "라이더 콜 수신 여부가 존재하지 않습니다.",
+      "suc_modify_call_status": "라이더 콜 수신 여부를 수정하였습니다.",
+      "vehicle_satus_not_exists": "배상 운송 수단이 존재하지 않습니다.",
+      "uid_not_exists": "사용자 uid가 존재하지 않습니다.",
+      "login_can_not_pass": "로그인할 수 없습니다. 이메일과 비밀번호를 확인해주세요.",
+      "rider_status_not_modify": "라이더 상태를 변경하지 못하였습니다.",
+      "user_info_db_not_exists": "등록되지 않은 사용자입니다.",
+      "user_phone_not_modify": "사용자 휴대폰 번호를 변경하지 못하였습니다.",
+      "suc_modify_phone": "사용자 휴대폰 번호를 수정하였습니다.",
+      "kakao_user_not_regist": "카카오톡 사용자 등록 중 오류가 발생하였습니다.",
+      "access_token_not_exists": "accessToken이 존재하지 않습니다.",
+      "regist": "사용자가 등록되었습니다.",
+      "token_verified": "인증된 사용자입니다.",
+      "kakao_id_not_exists": "카카오 id가 존재하지 않습니다.",
+      "user_not_found": "등록된 사용자 이메일이 아닙니다.",
+      "device_token_not_exists": "device token 이 존재하지 않습니다.",
+      "user_not_modified": "사용자 정보 수정중에 오류가 발생하였습니다.",
+      "suc_modify_device_token": "사용자 device token을 수정하였습니다.",
+      "user_device_token_not_modify": "사용자 device token을 변경하지 못하였습니다."
+    },
+    "mail": {
+      "mail_not_send": "메일을 전송하지 못했습니다.",
+      "mail_send": "메일을 전송하였습니다",
+      "retry_not_number": "재시도 횟수값이 숫자가 아닙니다."
+    },
+    "push": {
+      "push_not_send": "PUSH 메시지를 전송 하지 못했습니다.",
+      "push_send": "PUSH 메시지 전송 요청 하였습니다.",
+      "phone_change": "핸드폰 번호가 변경되었습니다."
+    }
+  }
+}
