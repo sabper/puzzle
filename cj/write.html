@@ -13,13 +13,40 @@
 
       <link rel="stylesheet" type="text/css" href="style.css">
       <script src="camera.js"></script>
+      <style>
+      .write_button{
+      padding-top: 5px;
+      padding-bottom: 5px;
+      padding-left: 10px;
+      padding-right: 10px;
+      margin-left: 5px;
+      margin-right: 5px;
+      margin-top: 5px;
+      margin-bottom: 5px;
+      height: 32px;
+      font-size: 14px;
+    }
+    textarea {
+      font-size: 14px;
+    }
+
+    input[type="text"]
+    {
+      font-size:14px;
+    }
+
+    .font{
+      font-size:14px;
+    }
+
+      </style>
   </head>
 
   <body>
-    <div data-role="page" id="main" data-theme="a">
-        <div data-role="header" data-position="fixed" data-theme="a">
+    <div data-role="page" id="main" data-theme="b">
+        <div data-role="header" data-position="fixed" data-theme="b">
             <h2 id="logo">Ugly Truth</h2>
-          <div data-role="navbar" data-positon="fixed" data-theme="a">
+          <div data-role="navbar" data-positon="fixed" data-theme="b">
            <ul>
              <li><a href="index.html" data-icon="home" data-iconpos="notext">Home</a></li>
              <li><a href="search.html" data-icon="search" data-iconpos="notext">Search</a></li>
@@ -28,64 +55,76 @@
           </div>
          </div>
 
-        <div data-role="content" data-theme="a">
-          <form action="#.php" method="post">
-            <div class="ui-field-contain">
-              <label for="select-native-1"></label>
-              <select id="select-native-1" name="지역" data-mini="true" data-iconpos="left">
-                <option>어디 다녀오셨나요?</option>
-                    <optgroup label="동아시아">
-                         <option value="1">한국</option>
-                         <option value="2">일본</option>
-                         <option value="3">중국</option>
-                         <option value="4">대만</option>
-                    </optgroup>
-                    <optgroup label="동남아시아">
-                         <option value="5">태국</option>
-                         <option value="6">베트남</option>
-                         <option value="7">필리핀</option>
-                         <option value="8">말레이시아</option>
-                         <option value="9">라오스</option>
-                    </optgroup>
-                    <optgroup label="유럽">
-                         <option value="10">영국</option>
-                         <option value="11">프랑스</option>
-                         <option value="12">독일</option>
-                         <option value="13">이탈리아</option>
-                         <option value="14">스페인</option>
-                         <option value="15">터키</option>
-                    </optgroup>
-                    <optgroup label="북미">
-                         <option value="16">미국</option>
-                         <option value="17">캐나다</option>
-                    </optgroup>
-                    <optgroup label="중남미">
-                         <option value="18">멕시코</option>
-                         <option value="19">페루</option>
-                         <option value="20">브라질</option>
-                    </optgroup>
-              </select>
-            </div>
-            <div class="contents" data-theme="a">
-              <label for="text-1">제목</label>
-              <input type="text" name="text-1" id="text-1" class="textarea">
+        <div data-role="content" data-theme="b">
+        <form action="process.php" method="POST" name="formname1" id="formname1">
+          <div class="contents" data-theme="b">
+              <div>
+                  <label for="text-1">
+                    <p class="font" style="margin-top: 2px; margin-bottom: 0px;">Title</p>
+                  </label>
+                  <input type="text" name="text-1" id="text-1" class="textarea">
+              </div>
+              <div>
+                  <label for="textarea-1">
+                    <p class="font" style="margin-top: 2px; margin-bottom: 0px;">What's up?</p>
+                  </label>
+                  <textarea name="textarea-1" id="textarea-1" class="textarea" placeholder="Tell us about your story"></textarea>
+              </div>
+              <div>
+                  <label for="textarea-2">
+                    <p class="font" style="margin-top: 2px; margin-bottom: 0px;">Any advice?</p>
+                  <textarea name="textarea-2" id="textarea-2" class="textarea" placeholder="Whisper better info."></textarea>
+              </div>
+          </div>
+          </form>
+          </br>
 
-              <label for="textarea-1">오늘 무슨 일을 겪으셨나요?</label>
-              <textarea name="textarea-1" id="textarea-1" class="textarea"></textarea>
+                  <div class="filebox ui-input-btn ui-btn ui-corner-all ui-btn-icon-left ui-icon-camera ui-btn-inline">
+                          photo
+                      
+                      <input type="file" accept="image/*" id="camera" name="camera" capture="camera" data-enhanced="true"/>
+                  </div>
 
-              <label for="textarea-2">나만 알기 아까운 꿀팁 :)</label>
-              <textarea name="textarea-2" id="textarea-2" class="textarea"></textarea>
-            </div>
-            <br />
-              <label for="camera">사진</label>
-              <input type="file" id="camera" name="camera" capture="camera" accept="image/*" data-mini="true"  />
+                  <div class="filebox ui-input-btn ui-btn ui-corner-all ui-btn-icon-left ui-icon-video ui-btn-inline">
+                          video
+                       
+                      <input type="file" accept="video/*" id="camcorder" name="camcorder" capture="camcorder" data-enhanced="true"/>
 
-              <label for="camcorder">동영상</label>
-              <input type="file" id="camcorder" name="camcorder" capture="camcorder" accept="video/*" data-mini="true"/>
+                  </div>
+                  
+                  <div>
+                      &nbsp;&nbsp;
+                      <img id="pic" style="width:40%;" />
+                  </div>
 
-              <input type="submit" class="submit" data-inline="true" data-mini="true" value="저장"/>
-            </form>
+                  <div align="right">
+                    <a href="index.html"><button data-inline="true" data-mini="true" data-theme="b" class="write_button" onclick="formSubmit()"/>취소</button></a>
+                    <a href="index.html"><button data-inline="true" data-mini="true" data-theme="b" class="write_button" onclick="formSubmit()"/>저장</button></a>
+                  </div>
+
+
+        </form>
+            <script>
+            function formSubmit() {
+              var queryString = $("#formname1").serialize();
+              $.ajax({
+                    url : "/test.jsp",
+                    type : "POST",
+                    data : queryString,
+                    dataType : "json",
+                    contentType: false,
+                    success : function(json){
+                        $("#dataArea").html(data) ;
+                    }
+                    error : function(xhr, status, error){
+                        alert('error');
+                    },
+                  });
+                };
+
+            </script>
         </div>
     </div>
+  </div>
   </body>
 </html>

@@ -1,3 +1,9 @@
+<?php
+$conn = mysqli_connect("localhost", "root", "vjwmf2017");
+mysqli_select_db($conn, "puzzle");
+$result = mysqli_query($conn, "SELECT * FROM topic");
+?>
+
 <!DOCTYPE html>
 <html>
   <head>
@@ -5,6 +11,7 @@
 
     <title>Ugly Truth MVP</title>
       <meta name="viewport" content="width=device-width, initial-scale=1">
+
       <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
       <link rel="stylesheet" href="themes/my-custom-theme.min.css" />
       <link rel="stylesheet" href="themes/jquery.mobile.icons.min.css" />
@@ -17,42 +24,35 @@
 
       <link rel="stylesheet" type="text/css" href="style.css">
       <script src="floatingbutton.js"></script>
-    <style>
-    .center{
-      text-align: center;
-      font-weight: bold;
-    }
-
-    #image_logo{
-      display: block;
-      margin: auto;
-      width: 40%;
-    }
-
-    </style>
   </head>
 
   <body>
     <div data-role="page" id="main" data-theme="b">
-        <div data-role="header" data-position="fixed">
-            <h2 id="logo">Ugly Truth</h2>
-          <div data-role="navbar" data-positon="fixed">
+        <div data-role="header" data-position="fixed" data-theme="b">
+          <a href="login.html" data-icon="gear" data-iconpos="notext" class="ui-btn-right">Login</a>
+          <h2 id="logo">Ugly Truth</h2>
+          <div data-role="navbar" data-positon="fixed" data-theme="b">
            <ul>
-             <li><a href="index.html" data-icon="home" data-iconpos="notext">Home</a></li>
+             <li><a href="index.php" data-icon="home" class="ui-btn-active" data-iconpos="notext">Home</a></li>
              <li><a href="search.html" data-icon="search" data-iconpos="notext">Search</a></li>
              <li><a href="myaccount.html" data-icon="user" data-iconpos="notext">My Account</a></li>
            </ul>
           </div>
-         </div>
-
-        <div data-role="content">
-        <img src="images/puzzlelogo2.png" id="image_logo">
-        <p class="center">잠깐 구경하러 왔다가 눌러않게 될걸요!</p>
-        <br>
-        <a href="signup.html" class="ui-btn ui-btn-a ui-corner-all" style="background: rgb(85,71,232); color:white;">시작하기</a>
-        <a href="login.html" class="ui-btn ui-btn-b ui-corner-all">로그인</a>
 
         </div>
-    </div>
-  </body>
+
+        <div data-role="content" data-theme="b" style="padding-top: 0px; padding-bottom: 10px;">
+          <ul data-role="listview" style="margin-top: 20px;">
+
+            <?php
+            while( $row = mysqli_fetch_assoc($result)){
+              echo '<li><a href="http://localhost:8080/puzzle/cj/content.php?id='.$row['id'].'">'.$row['title'].'</br>'.$row['description'].'</a></li>'."\n";
+            }
+            ?>
+          </ul>
+          <div id="btncollapzion" class=" btn_collapzion">
+          </div>
+        </div>
+   </div>
+ </body>
 </html>

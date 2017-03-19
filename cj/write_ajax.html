@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+
+    <title>Ugly Truth MVP</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+      <link rel="stylesheet" href="themes/my-custom-theme.min.css" />
+      <link rel="stylesheet" href="themes/jquery.mobile.icons.min.css" />
+      <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+      <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+
+      <link rel="stylesheet" type="text/css" href="style.css">
+      <script src="camera.js"></script>
+      <style>
+      .write_button{
+      padding-top: 5px;
+      padding-bottom: 5px;
+      padding-left: 10px;
+      padding-right: 10px;
+      margin-left: 5px;
+      margin-right: 5px;
+      margin-top: 5px;
+      margin-bottom: 5px;
+      height: 32px;
+      font-size: 14px;
+    }
+    textarea {
+      font-size: 14px;
+    }
+
+    input[type="text"]
+    {
+      font-size:14px;
+    }
+
+    .font{
+      font-size:14px;
+    }
+
+      </style>
+  </head>
+
+  <body>
+    <div data-role="page" id="main" data-theme="b">
+        <div data-role="header" data-position="fixed" data-theme="b">
+            <h2 id="logo">Ugly Truth</h2>
+          <div data-role="navbar" data-positon="fixed" data-theme="b">
+           <ul>
+             <li><a href="index.html" data-icon="home" data-iconpos="notext">Home</a></li>
+             <li><a href="search.html" data-icon="search" data-iconpos="notext">Search</a></li>
+             <li><a href="myaccount.html" data-icon="user" data-iconpos="notext">My Account</a></li>
+           </ul>
+          </div>
+         </div>
+
+        <div data-role="content" data-theme="b">
+        <form name="formname1" id="formname1"></form>
+          <div class="contents" data-theme="b">
+              <div>
+                  <label for="text-1">
+                    <p class="font" style="margin-top: 2px; margin-bottom: 0px;">Title</p>
+                  </label>
+                  <input type="text" name="text-1" id="text-1" class="textarea">
+              </div>
+              <div>
+                  <label for="textarea-1">
+                    <p class="font" style="margin-top: 2px; margin-bottom: 0px;">What's up?</p>
+                  </label>
+                  <textarea name="textarea-1" id="textarea-1" class="textarea" placeholder="Tell us about your story"></textarea>
+              </div>
+              <div>
+                  <label for="textarea-2">
+                    <p class="font" style="margin-top: 2px; margin-bottom: 0px;">Any advice?</p>
+                  <textarea name="textarea-2" id="textarea-2" class="textarea" placeholder="Whisper better info."></textarea>
+              </div>
+          </div>
+          </br>
+
+                  <div class="filebox ui-input-btn ui-btn ui-corner-all ui-btn-icon-left ui-icon-camera ui-btn-inline">
+                          photo
+                      
+                      <input type="file" accept="image/*" id="camera" name="camera" capture="camera" data-enhanced="true"/>
+                  </div>
+
+                  <div class="filebox ui-input-btn ui-btn ui-corner-all ui-btn-icon-left ui-icon-video ui-btn-inline">
+                          video
+                       
+                      <input type="file" accept="video/*" id="camcorder" name="camcorder" capture="camcorder" data-enhanced="true"/>
+                  </div>
+                  <div>
+                      &nbsp;&nbsp;
+                      <img id="pic" style="width:40%;" />
+                  </div>
+
+                  <div align="right">
+                    <a href="index.html"><button data-inline="true" data-mini="true" data-theme="b" class="write_button" onclick="formSubmit()"/>취소</button></a>
+                    <a href="index.html"><button data-inline="true" data-mini="true" data-theme="b" class="write_button" onclick="formSubmit()"/>저장</button></a>
+                  </div>
+
+
+        </form>
+            <script>
+            function formSubmit() {
+              var queryString = $("#formname1").serialize();
+              $.ajax({
+                    url : "/test.jsp",
+                    type : "POST",
+                    data : queryString,
+                    dataType : "json",
+                    contentType: false,
+                    success : function(json){
+                        $("#dataArea").html(data) ;
+                    }
+                    error : function(xhr, status, error){
+                        alert('error');
+                    },
+                  });
+                };
+
+            </script>
+        </div>
+    </div>
+  </div>
+  </body>
+</html>

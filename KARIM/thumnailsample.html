@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <form method="post" id="upload-image-form">
+          <h2>Upload Image Form</h2>
+          <div class="cell">
+            <div class="row requiredRow">
+              <label id="image-upload-ariaLabel" for="picture">Select Image:</label> <input type="file" size="40" name="image-upload" id="image-upload"> <button id="remove-image-upload"><img src="img/cross.png"> Remove</button>
+            </div>
+          </div>
+
+          <div class="cell">
+              <h2>Generated Image Thumbnail:</h2>
+              <div id="image_preview_wrap">
+                  <img class="loading" alt="loading..." src="img/loading.gif">
+                  <img alt="picture" src="img/350x150.jpg" id="image_preview">
+              </div>
+          </div>
+
+          <div class="cell">
+              <h2>Saved Original Image:</h2>
+              <div id="image_original_wrap">
+                  <img class="loading" alt="loading..." src="img/loading.gif">
+                  <img alt="The original uploaded image will appear here..." src="" id="image_original">
+              </div>
+          </div>
+
+
+          <div class="cell lastcell">
+             <input type="submit" value="Submit Form" class="submit-btn">
+          </div>
+
+        </form>
+
+
+    <img alt="image preview " src="img/350x150.jpg" id="image-thumb"/>
+
+    <script>
+    submitForm: function()
+{
+    /* example of submitting the form */
+    var $theForm = $('#submit-plugin-form'),
+        formData = $theForm.serialize(); //get form data
+
+    //include video thumb src
+    formData += '&image-thumb=' + $('#image-thumb').attr('src');
+    $theForm.find(':input').attr('disabled', 'disabled'); //lock form
+
+    $.ajax(
+    {
+        type: "POST",
+        url: 'http://localhost/develop/puzzle/KARIM/process_ajax.php',
+        dataType: "json",
+        data: formData,
+        success: function(ret)
+        {
+            alert("success")
+        },
+        error: function(xhr, textStatus, errorThrown)
+        {
+            console.log(xhr, textStatus, errorThrown + 'error');
+            return false;
+        }
+    });
+}
+
+    </script>
+
+
+  </body>
+</html>

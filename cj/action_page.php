@@ -1,3 +1,3 @@
 <?php
-header('Location: http://localhost:8080/uglytruth/write.html');
+header('Location: http://localhost:8080/puzzle/cj/write.html');
  ?>

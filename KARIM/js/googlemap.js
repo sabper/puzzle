@@ -127,6 +127,7 @@ function initAutocomplete() {
 
 //모달창이 띄어질 경우 구글 맵 리사이즈
 
+
 function resize(){
 
 $('#myModal').on('shown.bs.modal', function () {
