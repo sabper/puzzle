@@ -31,4 +31,11 @@ app.get('/signin', (req, res) => {
   })
 })
 
+app.get('/write', (req, res) => {
+  return res.render('mobile/write', {
+    title: 'mobile',
+    layout: 'mobile'
+  })
+})
+
 module.exports = app
