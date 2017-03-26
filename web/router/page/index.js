@@ -2,6 +2,7 @@
 
 const express = require('express')
 const app = express()
+<<<<<<< HEAD
 const path = require('path')
 const users = require('./users')
 const home = require('./home')
@@ -28,6 +29,13 @@ app.use('/', (req, res, next) => {
 
   next()
 })
+=======
+const home = require('./home')
+const users = require('./users')
+// const login = require('../../middlewares/checkLogin')
+
+// app.use('/', login)
+>>>>>>> ae579e03962fdaf3057486c9fe80ff7b22e8f3ba
 app.use('/', home)
 app.use('/users', users) // 사용자
 
