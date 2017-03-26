@@ -5,3 +5,25 @@
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA2PoahCwfzXOIv0vRZzHuzfskluLEvFq0&libraries=places&callback=initAutocomplete" async defer>
 </script>
 <script src="/js/googlemap.js"></script>
+<script>
+$(function() {
+  $("#utloginform").submit(function(event) {
+    var data = ($(this).serializeArray());
+    $.ajax({
+      type: "POST",
+      url: '/api/v1/users/user/login',
+      data: data,
+      success: function(data) {
+        console.log(data);
+        window.location.replace("/")
+      },
+      error: function(data) {
+        //[TODO] alert 을 빨간 message element 추가
+        alert('로그인 실패');
+      }
+    });
+    event.preventDefault();
+    }
+  )
+})
+</script>

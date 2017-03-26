@@ -56,12 +56,7 @@ exports.create = (req, res) => {
     admin.auth()
     .createCustomToken(uid)
     .then((customToken) => {
-      return res.status(200).json({
-        message: `${email} ${config.message.user.regist}`,
-        uid: firebase.auth().currentUser.uid,
-        token: customToken,
-        email_auth_status: false // 이메일 인증 여부
-      })
+      return res.redirect('/')
     })
 
     return uid
@@ -119,10 +114,7 @@ exports.create = (req, res) => {
       errMsg = map.get(errCode)
     }
 
-    return res.status(401).json({
-      code: errCode,
-      message: errMsg
-    })
+    return res.redirect(401, '/')
   }
 
   // 전체 promise chain
@@ -161,45 +153,36 @@ exports.login = (req, res) => {
     })
   }
 
-  const resp = () => {
-    // uid 조회
-    let uid = firebase.auth().currentUser.uid
+  const findUserFromFb = () => {
+    return firebase.auth().currentUser
+  }
 
-    // 이메일 인증 조회 검증
-    let emailAuthStatus = firebase.auth().currentUser.emailVerified
+  const findUserFormDb = (user) => {
+    return new Promise((resolve, reject) => {
+      logger.info('user~~~~~~~~~~~~~', user.uid)
 
-    // 휴대폰 번호 중복 여부
-    let isChangePhone = false
+      // 사용자 조회
+      User.findOne({'uid': user.uid}, (err, user) => {
+        if (err) {
+          reject(err)
+        }
 
-    // 사용자 조회
-    User.findOne({'uid': uid}, (err, user) => {
-      if (err) {
-        return onError(err)
-      }
-
-      if (!user) {
-        return onError({
-          'code': 'user_info_db_not_exists',
-          'message': config.message.user_info_db_not_exists
-        })
-      }
-
-      // 로그인 토큰 발행 후 각 사용자 인증 값 전달. 발행되는 토큰 유효시간은 1시간임. 이 후 앱에서는 해당 토큰으로 로그인 한 후 토큰 조회하여 서버에 인증 요청
-      return admin
-      .auth()
-      .createCustomToken(uid)
-      .then((customToken) => {
-        return res.json({
-          message: `${email} user login.`,
-          email_auth_status: emailAuthStatus || false, // 이메일 인증 여부
-          phone_status: isChangePhone,
-          uid: uid,
-          token: customToken
-        })
+        if (!user) {
+          reject({
+            'code': 'user_info_db_not_exists',
+            'message': config.message.user_info_db_not_exists
+          })
+        }
       })
+      resolve(true)
     })
+  }
 
-    return uid
+  const resp = () => {
+    // 로그인 성공 시 홈으로 redirect
+    return res.status(200).json({
+      isLogin: true
+    })
   }
 
   /* promise 에러 공통 처리
@@ -220,13 +203,14 @@ exports.login = (req, res) => {
     }
 
     return res.status(401).json({
-      code: errCode || 'user.login_can_not_pass',
-      message: errMsg || config.message.user.login_can_not_pass
+      message: 'login fail.'
     })
   }
 
   // 전체 promise chain
   firebase.auth().signInWithEmailAndPassword(email, password) // 1. 로그인
+  .then(findUserFromFb)
+  .then(findUserFormDb)
   .then(resp) // 2. 로그인
   .catch(onError)
 }

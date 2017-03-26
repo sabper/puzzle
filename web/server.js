@@ -31,13 +31,12 @@ app.engine('.hbs', exphbs({
   ]
 }))
 app.set('view engine', '.hbs')
-app.set('views', path.join(__dirname, './views'))
 
 app.use(express.static(path.join(__dirname, 'public')))
 app.use('/bootstrap_css', express.static(path.join(__dirname, '../node_modules/bootstrap/dist/css')))
 app.use('/bootstrap_js', express.static(path.join(__dirname, '../node_modules/bootstrap/dist/js')))
 
-app.use('/', routerPage) // / 하위로 요청되는 request 다음 router에서 수행
+app.use('/', (routerPage)) // / 하위로 요청되는 request 다음 router에서 수행
 app.use('/api/v1', routerApi) // /api/v1 하위로 요청되는 request 다음 router에서 수행
 
 const logErrors = (err, req, res, next) => {
