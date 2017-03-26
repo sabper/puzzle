@@ -1,15 +1,13 @@
 'use strict'
 
 const express = require('express')
-const router = express.Router()
+const app = express()
+const home = require('./home')
 const users = require('./users')
+// const login = require('../../middlewares/checkLogin')
 
-router.use('/main', (req, res) => {
-  res.render('home', {
-    name: 'barogo',
-    title: 'Home'
-  })
-})
-router.use('/users', users) // 사용자
+// app.use('/', login)
+app.use('/', home)
+app.use('/users', users) // 사용자
 
-module.exports = router
+module.exports = app

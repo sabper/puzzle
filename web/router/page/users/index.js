@@ -1,9 +1,9 @@
 'use strict'
 
 const express = require('express')
-const router = express.Router()
+const app = express()
 const mail = require('./mail')
 
-router.get('/user/verify/:uid/:oobCode', mail.confirm) // 메일 인증
+app.get('/user/verify/:uid/:oobCode', mail.confirm) // 메일 인증
 
-module.exports = router
+module.exports = app
