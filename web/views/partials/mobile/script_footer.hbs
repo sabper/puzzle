@@ -1,0 +1,72 @@
+<script type=text/javascript>
+   var links = [
+      {
+         "bgcolor":"#03A9F4",
+         "icon":"+"
+      },
+      {
+         "url":"http://plus.google.com",
+         "bgcolor":"#DB4A39",
+         "color":"#fffff",
+         "icon":"<i class='fa fa-google-plus'></i>",
+         "target":"_blank"
+      },
+      {
+         "url":"http://www.facebook.com",
+         "bgcolor":"#00ACEE",
+         "color":"#fffff",
+         "icon":"<i class='fa fa-<a href="http://www.jqueryscript.net/tags.php?/twitter/">twitter</a>'></i>",
+         "target":"_blank"
+      },
+      {
+         "url":"http://www.facebook.com",
+         "bgcolor":"#3B5998",
+         "color":"#fffff",
+         "icon":"<i class='fa fa-facebook'></i>",
+         "target":"_blank"
+      },
+      {
+         "url":"http://www.jqueryscript.net",
+         "bgcolor":"#263238",
+         "color":"white",
+         "icon":"<i class='fa fa-home'></i>"
+      }
+   ]
+   $('.kc_fab_wrapper').kc_fab(links);
+</script>
+
+<script src="/js/googlemap.js"></script>
+<script src="https://www.gstatic.com/firebasejs/3.7.3/firebase.js"></script>
+<script>
+// Initialize Firebase
+var config = {
+  apiKey: "AIzaSyDNyzFKRSnnkqHVE3fK0dmJL9RdLoTEqJQ",
+  authDomain: "puzzle-c6f1c.firebaseapp.com",
+  databaseURL: "https://puzzle-c6f1c.firebaseio.com",
+  storageBucket: "",
+  messagingSenderId: "225956635367"
+};
+firebase.initializeApp(config);
+</script>
+
+
+<!--Handle auth events-->
+<script>
+  // 로그인, 로그아웃 이벤트 발생하면 호출 되는 함수
+  firebase.auth().onAuthStateChanged(function(user) {
+    window.user = user;
+    // Step 1:
+    //  If no user, sign in anonymously with firebase.auth().signInAnonymously()
+    //  If there is a user, log out out user details for debugging purposes.
+
+    if (user) { // 로그인 성공
+      console.log('login success in mobile. ', user.email)
+    } else { // 로그인 실패 또는 미로그인
+      console.log('not login in mobile.')
+    }
+  });
+</script>
+
+<script src='/js/mobile/login.js'></script> // 로그인
+<script src="/js/collapzion.min.js"></script>
+<script src="/js/floatingbutton.js"></script>
