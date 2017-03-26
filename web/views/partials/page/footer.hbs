@@ -5,25 +5,66 @@
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA2PoahCwfzXOIv0vRZzHuzfskluLEvFq0&libraries=places&callback=initAutocomplete" async defer>
 </script>
 <script src="/js/googlemap.js"></script>
+<script src="https://www.gstatic.com/firebasejs/3.7.3/firebase.js"></script>
+<script>
+// Initialize Firebase
+var config = {
+  apiKey: "AIzaSyDNyzFKRSnnkqHVE3fK0dmJL9RdLoTEqJQ",
+  authDomain: "puzzle-c6f1c.firebaseapp.com",
+  databaseURL: "https://puzzle-c6f1c.firebaseio.com",
+  storageBucket: "",
+  messagingSenderId: "225956635367"
+};
+firebase.initializeApp(config);
+</script>
+
+
+<!--Handle auth events-->
+<script>
+  // 로그인, 로그아웃 이벤트 발생하면 호출 되는 함수
+  firebase.auth().onAuthStateChanged(function(user) {
+    window.user = user;
+    // Step 1:
+    //  If no user, sign in anonymously with firebase.auth().signInAnonymously()
+    //  If there is a user, log out out user details for debugging purposes.
+
+    if (user) { // 로그인 성공
+      $('#loginBtn').hide(); // 로그인 버튼 hide
+      $('#logoutBtn').show(); // 로그아웃 버튼 show
+      $('#utid').hide(); // 로그인 모달 hide
+      $('#userInfo').text(user.email)
+    } else { // 로그인 실패 또는 미로그인
+      $('#logoutBtn').hide(); // 로그아웃  버튼 hide
+      $('#loginBtn').show(); // 로그인 버튼 show
+      $('#userInfo').text(''); // 로그인한 사용자 정보 hide
+    }
+  });
+</script>
+
 <script>
 $(function() {
-  $("#utloginform").submit(function(event) {
-    var data = ($(this).serializeArray());
-    $.ajax({
-      type: "POST",
-      url: '/api/v1/users/user/login',
-      data: data,
-      success: function(data) {
-        console.log(data);
-        window.location.replace("/")
-      },
-      error: function(data) {
-        //[TODO] alert 을 빨간 message element 추가
-        alert('로그인 실패');
-      }
+  // 로그인
+  $("#utloginbt").click(function(e) {
+    e.preventDefault();
+    e.stopPropagation();
+
+    var email = $('#email').val();
+    var password = $('#password').val();
+
+    firebase.auth().signInWithEmailAndPassword(email, password).catch(function(error) {
+      // Handle Errors here.
+      var errorCode = error.code;
+      var errorMessage = error.message;
+      console.log(errorMessage);
     });
-    event.preventDefault();
-    }
-  )
+  });
+
+  // 로그아웃
+  $("#logoutBtn").click(function(e) {
+    e.preventDefault();
+    e.stopPropagation();
+
+    firebase.auth().signOut();
+  });
 })
 </script>

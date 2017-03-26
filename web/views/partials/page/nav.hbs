@@ -8,12 +8,9 @@
     <h3 class="text-center" id="utlogotext">당신의 불편한 경험의 공유가 소중한 가치가 됩니다  <small>Share ugly truth..</small></h3>
 
     <!-- Button to open the modal login form -->
-    {{#if isLogin}}
-      {{user.email}} 로그인하셨습니다.
-      <button class="btn btn-default navbar-btn navbar-right" onclick="document.getElementById('utid').style.display='block'">Logout</button>
-    {{else}}
-      <button class="btn btn-default navbar-btn navbar-right" onclick="document.getElementById('utid').style.display='block'">Login</button>
-    {{/if}}
+    <div id='userInfo'></div>
+    <button id='logoutBtn' class="btn btn-default navbar-btn navbar-right" style='display:none;'>Logout</button>
+    <button id='loginBtn' class="btn btn-default navbar-btn navbar-right" style='display:none;' onclick="document.getElementById('utid').style.display='block'">Login</button>
 
     <!-- The Modal -->
     <div id="utid" class="utmodal">
@@ -32,7 +29,7 @@
           <label><b>Password</b></label>
           <input class= "utloginip" type="password" placeholder="Enter Password" id="password" name="password" required>
 
-          <button id="utloginbt" type="submit">Login</button>
+          <button id="utloginbt">Login</button>
           <input type="checkbox" checked="checked"> Remember me
         </div>
 
