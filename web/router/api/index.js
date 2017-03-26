@@ -4,7 +4,7 @@ const express = require('express')
 const router = express.Router()
 const apikey = require('../../middlewares/auth')
 const users = require('./users')
-console.log('asdfasdfasdfas')
+
 router.use('/', apikey) // api key 검증 middleware
 router.use('/users', users) // 사용자 인증 관련
 

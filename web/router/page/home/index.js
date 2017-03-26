@@ -1,17 +1,11 @@
 'use strict'
 
 const express = require('express')
-const app = express()
-const path = require('path')
-const users = require('./users')
-const home = require('./home')
+const router = express.Router()
 const firebase = require('firebase')
 const logger = require('winston')
 
-app.set('views', path.join(__dirname, '../../views'))
-
-// login check middleware
-app.use('/', (req, res, next) => {
+router.get('/', (req, res) => {
   const user = firebase.auth().currentUser
   let isLogin = false
 
@@ -23,12 +17,11 @@ app.use('/', (req, res, next) => {
     isLogin = false
   }
 
-  req.isLogin = isLogin
-  req.user = user
-
-  next()
+  return res.render('home', {
+    title: 'home',
+    isLogin: isLogin,
+    user: user
+  })
 })
-app.use('/', home)
-app.use('/users', users) // 사용자
 
-module.exports = app
+module.exports = router
