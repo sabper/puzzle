@@ -7,7 +7,11 @@ $(document).on("pagebeforecreate", function (event) {
 
     if (user) { // 로그인 성공
       console.log('login success in mobile. ', user.email)
-      $.mobile.changePage('/');
+      $.mobile.changePage('/', {
+        allowSamePageTransition: true,
+        transition: 'none',
+        reloadPage: true
+      });
     } else { // 로그인 실패 또는 미로그인
       console.log('not login in mobile.')
     }
