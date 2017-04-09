@@ -3,6 +3,7 @@
   <meta charset="utf-8">
   <title>Ugly Truth MVP</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script type="text/javascript" src="https://www.gstatic.com/firebasejs/3.7.3/firebase.js"></script>
     <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
     <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
     <link rel="stylesheet" href="/css/mobile/themes/my-custom-theme.min.css" />
@@ -11,6 +12,18 @@
     <link rel="stylesheet" href="/css/collapzion.min.css">
     <link rel="stylesheet" type="text/css" href="/css/mobile/style.css">
     <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+
+    <script type="text/javascript">
+    // Initialize Firebase
+    var config = {
+      apiKey: "AIzaSyDNyzFKRSnnkqHVE3fK0dmJL9RdLoTEqJQ",
+      authDomain: "puzzle-c6f1c.firebaseapp.com",
+      databaseURL: "https://puzzle-c6f1c.firebaseio.com",
+      storageBucket: "",
+      messagingSenderId: "225956635367"
+    };
+    firebase.initializeApp(config);
+    </script>
 
     <style>
       #container {

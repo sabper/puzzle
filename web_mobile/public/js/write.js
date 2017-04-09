@@ -26,7 +26,11 @@ $(function () {
           $('#title').val('')
           $('#description').val('')
           $('#information').val('')
-          $.mobile.changePage('/');
+          $.mobile.changePage('/', {
+            allowSamePageTransition: true,
+            transition: 'none',
+            reloadPage: true
+          });
         }
       },
       error: function (err) {

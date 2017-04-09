@@ -1,16 +1,21 @@
 <div data-role="page" id="main" data-theme="b">
     {{> header}}
 
+    {{#each reviews}}
     <div id="container">
         <a href="#">
-            <h3>title</h3>
+            <h3>{{this.title}}</h3>
             <img src="images/mobile/prague.jpeg" width=90%;>
-            <p>description</p>
+            <p>{{this.description}}</p>
         </a>
     </div>&nbsp;
+    {{else}}
+    <div id="container">
+        등록된 리뷰가 없습니다.
+    </div>&nbsp;
+    {{/each}}
 
     <div id="btncollapzion" class=" btn_collapzion"/>
 
 </div>
 {{> script_footer}}
-<script type="text/javascript" src='/js/check_login.js'></script>
