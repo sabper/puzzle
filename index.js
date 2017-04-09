@@ -12,6 +12,8 @@ if (type === 'web') {
   require('./web')
 } else if (type === 'web_backoffice') {
   require('./web_backoffice')
+} else if (type === 'web_mobile') {
+  require('./web_mobile')
 } else {
   throw new Error(`
     ${type} is an unsupported process type.
