@@ -1,0 +1,26 @@
+<div data-role="page" id="main" data-theme="b">
+    <script>
+    firebase.auth().onAuthStateChanged(function (user) {
+      window.user = user;
+      // Step 1:
+      //  If no user, sign in anonymously with firebase.auth().signInAnonymously()
+      //  If there is a user, log out out user details for debugging purposes.
+
+      if (user) { // 로그인 성공
+        console.log('login success in mobile. ', user.email)
+        $.mobile.changePage('/');
+      } else { // 로그인 실패 또는 미로그인
+        console.log('not login in mobile.')
+      }
+    });
+    </script>
+    {{> header}}
+    <div data-role="content">
+        <img src="/images/mobile/puzzlelogo10.png" id="image_logo"/>
+        <p class="center">잠깐 구경하러 왔다가 눌러앉게 될걸요!</p>
+        <br>
+        <a href="signup.html" class="ui-btn ui-btn-a ui-corner-all" style="background: rgb(85,71,232); color:white;">시작하기</a>
+        <a href="/users/signin" class="ui-btn ui-btn-b ui-corner-all">로그인</a>
+    </div>
+</div>
+{{> script_footer}}
