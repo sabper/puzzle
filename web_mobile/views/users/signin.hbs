@@ -1,0 +1,32 @@
+<div data-role="page" id="main" data-theme="b">
+    {{> header}}
+    <script>
+    firebase.auth().onAuthStateChanged(function (user) {
+      window.user = user;
+      // Step 1:
+      //  If no user, sign in anonymously with firebase.auth().signInAnonymously()
+      //  If there is a user, log out out user details for debugging purposes.
+
+      if (user) { // 로그인 성공
+        console.log('login success in mobile. ', user.email)
+        $.mobile.changePage('/');
+      } else { // 로그인 실패 또는 미로그인
+        console.log('not login in mobile.')
+      }
+    });
+    </script>    
+    <script type="text/javascript" src="/js/signin.js"></script>
+
+    <div data-role="content">
+        <img src="/images/mobile/puzzlelogo10.png" id="image_logo">
+        <p class="center">당신만의 여행퍼즐을 만들어보세요!</p>
+        <input type="text" name="loginID" id="loginID" placeholder="아이디">
+        <input type="password" name="loginPASS" id="loginPASS" placeholder="비밀번호">
+        <br>
+        <input type="submit" value="로그인" id="loginBtn" name="loginBtn" style="background: rgb(85,71,232); color:white;">
+
+        <label><input type="checkbox" name="checkbox-0" data-mini="true">로그인 상태 유지</label>
+    </div>
+</div>
+{{> script_footer}}
+<script type="text/javascript" src='/js/signin.js'></script>
